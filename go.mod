@@ -1,4 +1,4 @@
-module messagebroker
+module github.com/meganewsopensource/messagebroker
 
 go 1.21
 
