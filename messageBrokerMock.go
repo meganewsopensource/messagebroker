@@ -1,4 +1,4 @@
-package messageBroker
+package messagebroker
 
 import (
 	"errors"
