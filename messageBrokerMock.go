@@ -15,7 +15,7 @@ type BrokerMock struct {
 
 func (m *BrokerMock) Receive() (<-chan amqp.Delivery, error) {
 	if m.ReceiverError {
-		return nil, errors.New("an error occurred when trying to receive messageBroker")
+		return nil, errors.New("an error occurred when trying to receive messagebroker")
 	}
 
 	deliveryChan := make(chan amqp.Delivery, 2)
@@ -34,7 +34,7 @@ func (m *BrokerMock) Receive() (<-chan amqp.Delivery, error) {
 
 func (m *BrokerMock) Send(message string) error {
 	if m.SenderError {
-		return errors.New("an error occurred when trying to send a messageBroker")
+		return errors.New("an error occurred when trying to send a messagebroker")
 	}
 
 	m.publishedMessages = append(m.publishedMessages, message)
