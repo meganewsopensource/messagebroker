@@ -1,4 +1,4 @@
-module messageBroker
+module messagebroker
 
 go 1.21
 
