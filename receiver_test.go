@@ -40,7 +40,7 @@ func Test_receiver_Receive(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			r := NewReceiver(&MockChannel{messages: []string{message},
+			r := NewReceiver(&mockChannel{messages: []string{message},
 				errorConsumingMessage: tt.wantErr},
 				tt.fields.queueName)
 			got, err := r.Receive()

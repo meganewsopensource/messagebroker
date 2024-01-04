@@ -1,18 +1,20 @@
 package messagebroker
 
 import (
+	"context"
 	"errors"
 	"fmt"
 
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 
-type MockChannel struct {
+type mockChannel struct {
 	messages              []string
 	errorConsumingMessage bool
+	errorSendingMessage   bool
 }
 
-func (mc *MockChannel) Consume(queue, consumer string, autoAck, exclusive, noLocal, noWait bool, args amqp.Table) (<-chan amqp.Delivery, error) {
+func (mc *mockChannel) Consume(queue, consumer string, autoAck, exclusive, noLocal, noWait bool, args amqp.Table) (<-chan amqp.Delivery, error) {
 	if mc.errorConsumingMessage {
 		return nil, errors.New("an error occurred while trying to consume queue")
 	}
@@ -27,4 +29,12 @@ func (mc *MockChannel) Consume(queue, consumer string, autoAck, exclusive, noLoc
 	}
 
 	return deliveries, nil
+}
+
+func (mc *mockChannel) PublishWithContext(ctx context.Context, exchange, key string, mandatory, immediate bool, msg amqp.Publishing) error {
+	if mc.errorSendingMessage {
+		return errors.New("an error occurred while trying to send a message")
+	}
+	mc.messages = append(mc.messages, string(msg.Body))
+	return nil
 }
