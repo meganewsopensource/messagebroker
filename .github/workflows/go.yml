@@ -34,7 +34,7 @@ jobs:
       - uses: actions/setup-go@v3
 
       - name: test (generate coverage)
-        run: go test ./... -coverprofile=./cover.out
+        run: go test ./... -coverprofile=./coverage.out && ./exclude-from-code-coverage.sh
 
       - name: check test coverage
         uses: vladopajic/go-test-coverage@v1
