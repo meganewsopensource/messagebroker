@@ -4,3 +4,5 @@ githubActionOutput: true
 
 threshold:
   total: 100
+
+local-prefix: "github.com/meganewsopensource/messagebroker"
