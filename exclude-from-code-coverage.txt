@@ -1,3 +1,2 @@
-github.com/meganewsopensource/messagebroker/main.go
 github.com/meganewsopensource/messagebroker/brokerChannel.go
 github.com/meganewsopensource/messagebroker/messageBroker.go
