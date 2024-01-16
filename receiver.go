@@ -9,11 +9,11 @@ type Receiver interface {
 }
 
 type receiver struct {
-	channel   *amqp.Channel
+	channel   BrokerChannel
 	queueName string
 }
 
-func NewReceiver(channel *amqp.Channel, queueName string) Receiver {
+func NewReceiver(channel BrokerChannel, queueName string) Receiver {
 	return &receiver{
 		channel:   channel,
 		queueName: queueName,

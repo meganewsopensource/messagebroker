@@ -12,12 +12,12 @@ type Sender interface {
 }
 
 type sender struct {
-	channel   *amqp.Channel
+	channel   BrokerChannel
 	queueName string
 	ctx       context.Context
 }
 
-func NewSender(channel *amqp.Channel, queueName string, ctx context.Context) Sender {
+func NewSender(channel BrokerChannel, queueName string, ctx context.Context) Sender {
 	return &sender{
 		channel:   channel,
 		queueName: queueName,
