@@ -1,5 +1,5 @@
-module  github.com/meganewsopensource/messagebroker
+module github.com/meganewsopensource/messagebroker
 
-go 1.21
+go 1.24
 
-require github.com/rabbitmq/amqp091-go v1.9.0
+require github.com/rabbitmq/amqp091-go v1.10.0
